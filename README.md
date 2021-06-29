@@ -26,7 +26,10 @@ conda activate stylegan2-ada-pytorch
 - **Add to PATH** "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
 
 [**CUDA toolkit**](https://developer.nvidia.com/cuda-toolkit-archive) 
-- ***Use Version 11.1/11.2 if using an RTX 3090 series or newer***
+
+***Use Version 11.1/11.2 if using an RTX 3090 series or newer***
+
+**Select the Following on CUDA Installation**
 - Windows
 - x86_64
 - 10
