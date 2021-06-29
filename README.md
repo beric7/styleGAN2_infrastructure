@@ -16,37 +16,39 @@
 - Nvidia GPUs with >= 12 GB of memory
 - Cuda Toolkit version 11.0, 11.1, or 11.2
 
-## Creating the Environment:
+## Steps for Installing Requirements and Setting Up the Environment:
+
+Create the Environment
 ```
 conda create --name stylegan2-ada-pytorch python=3.7
 conda activate stylegan2-ada-pytorch
 ```
 
-[CUDA toolkit](https://developer.nvidia.com/cuda-toolkit-archive) ***Use 11.1/11.2 if using an RTX 30 series or newer, else use 10.2***
+[CUDA toolkit](https://developer.nvidia.com/cuda-toolkit-archive) **Use Version 11.1/11.2 if using an RTX 30 series or newer, else use Version 10.2**
 - Windows
 - x86_64
 - 10
 - exe (local)
 
-***Verify CUDA installation by using the following command within anaconda prompt***
+**Verify CUDA installation by using the following command within anaconda prompt**
 ```
 nvcc --version
 ```
 
-Restart Computer
+**Restart Computer**
 
-Install PyTorch
+**Install PyTorch**
 ```
 conda install pytorch==1.7.1 torchvision==0.8.2 torchaudio==0.7.2 cudatoolkit=11.0 -c pytorch
 ```
 
-Clone the repository and change to the directory
+**Clone the repository and change to the directory**
 ```
 git clone <https_github_link_to_code>
 cd <location_of_stylegan2_files>
 ```
 
-Install Python Libraries
+**Install Python Libraries**
 ```
 pip install click requests tqdm pyspng ninja imageio-ffmpeg==0.4.3
 pip install psutil
@@ -55,7 +57,7 @@ pip install scipy
 
 ## Preparing the Data for training
 
-Gather a training image dataset with one of the following resolutions: 128x128, 256x256, 512x512, 1024x1024
+**Gather a training image dataset with one of the following resolutions: 128x128, 256x256, 512x512, 1024x1024**
 - Place the images into a directory to be used as the ***source*** flag below
 - Create an empty destination directory for the ***dest*** flag which converts the source dataset to be compatible
   with stylegan2-ada-pytorch
@@ -65,7 +67,7 @@ python dataset_tool.py --source=<source_directory> --dest=<destination_directory
 
 ## Training
 
-Use the following command for training:
+**Use the following command for training:**
 - The ***outdir*** flag should be set to an empty directory. This directory stores checkpoints for the model every 1000 iterations during training.
 - The ***data*** flag should be set to the previously created ***dest*** directory for the above data preparation command
 - The gpus flag should be set to the number of available gpus for training
