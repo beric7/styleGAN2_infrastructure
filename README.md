@@ -2,29 +2,31 @@
 ### [Training General Adversarial Networks with Limited Data](https://arxiv.org/abs/2006.06676)
 
 ## Requirements:
-- windows or linux (linux preferred)
+- Windows or Linux (Linux preferred)
 - Anaconda3
 - Python 3.7
 - Pytorch 1.7.1
 - Visual Studios Community Edition 2019
-- **Make sure to install Microsoft Visual Studios before Installing CUDA toolkit and cuDNN**
-- ***Ensure the following are selected when installing Visual Studios***:
-        - Desktop Development with C++
-        - Universal Windows Platform Development
-
-- Add to PATH "C:\Program Files (x86)\Microsoft Visual Studio\<VERSION>\Community\VC\Auxiliary\Build\vcvars64.bat"
+- **Make sure to install Microsoft Visual Studios Community Edition before Installing CUDA toolkit**
 - Nvidia GPUs with >= 12 GB of memory
 - Cuda Toolkit version 11.0, 11.1, or 11.2
 
 ## Steps for Installing Requirements and Setting Up the Environment:
 
-Create the Environment
+**Create the Environment**
 ```
 conda create --name stylegan2-ada-pytorch python=3.7
 conda activate stylegan2-ada-pytorch
 ```
 
-[CUDA toolkit](https://developer.nvidia.com/cuda-toolkit-archive) **Use Version 11.1/11.2 if using an RTX 30 series or newer, else use Version 10.2**
+[**Install Visual Studios Community Edition 2019**](https://visualstudio.microsoft.com/vs/)
+***Ensure the following are selected when installing Visual Studios***
+- Desktop Development with C++
+- Universal Windows Platform Development
+- **Add to PATH** "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
+
+[**CUDA toolkit**](https://developer.nvidia.com/cuda-toolkit-archive) 
+- ***Use Version 11.1/11.2 if using an RTX 3090 series or newer***
 - Windows
 - x86_64
 - 10
@@ -35,7 +37,7 @@ conda activate stylegan2-ada-pytorch
 nvcc --version
 ```
 
-**Restart Computer**
+***Restart Computer after installing CUDA before proceeding***
 
 **Install PyTorch**
 ```
