@@ -23,7 +23,8 @@ conda activate stylegan2-ada-pytorch
 ***Ensure the following are selected when installing Visual Studios***
 - Desktop Development with C++
 - Universal Windows Platform Development
-- **Add to PATH** "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
+
+**Add to PATH** "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
 
 [**CUDA toolkit**](https://developer.nvidia.com/cuda-toolkit-archive) 
 
