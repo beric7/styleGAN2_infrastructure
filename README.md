@@ -5,7 +5,7 @@
 - Windows or Linux (Linux preferred)
 - Anaconda3
 - Python 3.7
-- Pytorch 1.7.1
+- [Pytorch 1.7.1](https://pytorch.org/get-started/previous-versions/)
 - Visual Studios Community Edition 2019
 - **Make sure to install Microsoft Visual Studios Community Edition before Installing CUDA toolkit**
 - Nvidia GPUs with >= 12 GB of memory
