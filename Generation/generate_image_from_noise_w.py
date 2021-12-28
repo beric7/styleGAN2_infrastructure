@@ -54,7 +54,7 @@ def generate_images(G, device, seeds,truncation_psi,noise_mode,out_dir):
     
     df = pd.DataFrame(list(zip(*dictionary.values())), columns = labels)
 
-    df.to_csv('created_images_structural_w4000/noise_vectors.csv', index=False, )
+    df.to_csv(out_dir + '/noise_vectors.csv', index=False, )
 
 def generate_noise_vectors(G, device, seeds,truncation_psi,noise_mode,out_dir, name):
 
