@@ -18,7 +18,7 @@ import pandas as pd
 
 
 # Generate multiple images from a randomly generated noise vector
-def generate_images(network_pkl, seeds,truncation_psi,noise_mode,out_dir):
+def generate_images(network_pkl, seeds,truncation_psi,noise_mode,out_dir, csv_file):
     print('Loading networks from "%s"...' % network_pkl)
     device = torch.device('cuda')
     '''
@@ -58,7 +58,7 @@ def generate_images(network_pkl, seeds,truncation_psi,noise_mode,out_dir):
 
     df = pd.DataFrame(list(zip(*dictionary.values())), columns = labels)
 
-    df.to_csv('created_images_structural_10000/noise_vectors.csv', index=False, )
+    df.to_csv(csv_file, index=False, )
 
 import pickle
 def generate_image_with_vector(network_pkl, seeds,truncation_psi,noise_mode,out_dir, name, optional_vector = None):
@@ -88,20 +88,24 @@ def main():
     network_pkl = "./network-snapshot-013000.pkl"
     #seeds = [33,1000,2000]
     
-    csv_file = './created_images_structural_10000.csv'
+    output_csv_file = './created_images_structural_10000.csv'
     
     noise_mode = "random"
     out_dir = "created_images_structural_10000"
     
-    # Generates 1000 random seeds for the dataset
+    # Generates 10000 random images for the dataset
     seeds = []
-    '''
+    
+    ''' 
+    # Randomly:
     for i in range(10000):
         randomNum = np.random.randint(99999)
         while randomNum in seeds:
             randomNum = np.random.randint(99999)
         seeds.append(randomNum)
     '''
+    
+    # We did not generate our seeds randomly and used 0-10000
     for i in range(10000):
         randomNum = i
         while randomNum in seeds:
@@ -109,14 +113,14 @@ def main():
         seeds.append(randomNum)
 
     
-    # For generating multiple images from randomly generated vectors
-    generate_images(network_pkl, seeds,0.7,noise_mode,out_dir)
+    # For generating multiple images from randomly generated vectors. Generates CSV file.
+    generate_images(network_pkl, seeds,0.7,noise_mode,out_dir, output_csv_file)
     
     # For generating a single image with manual input vectors (must be a numpy array)
     # vec = np.ones((1,512))
     # generate_image_with_vector(network_pkl, seeds, 0.7, noise_mode, out_dir, vec)
     
-    df, column_names = read_csv_noise_vector(csv_file) 
+    df, column_names = read_csv_noise_vector(output_csv_file) 
     for column_name in column_names:
         csv_vector = df[column_name]
         generate_image_with_vector(network_pkl, seeds, 0.7, noise_mode, out_dir, column_name, csv_vector)
