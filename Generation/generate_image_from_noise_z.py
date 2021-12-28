@@ -65,7 +65,7 @@ def generate_images(network_pkl, seeds,truncation_psi,noise_mode,out_dir):
 
     df = pd.DataFrame(list(zip(*dictionary.values())), columns = labels)
 
-    df.to_csv('created_images_structural_10000/noise_vectors.csv', index=False, )
+    df.to_csv(out_dir + '/noise_vectors.csv', index=False, )
 
 import pickle
 def generate_image_with_vector(network_pkl, seeds,truncation_psi,noise_mode,out_dir, name, optional_vector = None):
@@ -104,7 +104,7 @@ def main():
     csv_file = './created_images_structural_test.csv'
     
     noise_mode = "random"
-    out_dir = "./created_images_structural_test"
+    out_dir = "./created_images_structural_z/"
     
     # Generates 1000 random seeds for the dataset
     seeds = []
@@ -128,7 +128,7 @@ def main():
     # vec = np.ones((1,512))
     # generate_image_with_vector(network_pkl, seeds, 0.7, noise_mode, out_dir, vec)
     
-    df, column_names = read_csv_noise_vector(csv_file) 
+    df, column_names = read_csv_noise_vector(out_dir + '/noise_vectors.csv') 
     for column_name in column_names:
         csv_vector = df[column_name]
         generate_image_with_vector(network_pkl, seeds, 0.7, noise_mode, out_dir, column_name, csv_vector)
