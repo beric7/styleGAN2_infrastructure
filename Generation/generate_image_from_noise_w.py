@@ -161,7 +161,7 @@ def main():
     G = object_['G_ema'].to(device)
     
     generate_images(G, device, seeds, 0.7, noise_mode, out_dir)
-    '''
+    
     # For generating multiple images from randomly generated vectors
     generate_noise_vectors(G, device, seeds,0.7,noise_mode,out_dir, name)
     
@@ -169,7 +169,7 @@ def main():
     for column_name in tqdm(column_names):
         csv_vector = df[column_name]
         generate_image_with_vector(G, device, seeds, 0.7, noise_mode, out_dir, column_name, 'w', csv_vector)
-    '''
+    
 if __name__ == "__main__":
     main()
 
