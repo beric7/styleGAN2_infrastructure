@@ -135,12 +135,10 @@ def read_csv_noise_vector(csv_file):
     
 def main():
     network_pkl = "./trained_styleGAN2_models/150k/150k_network-snapshot-025800.pkl"
-    #seeds = [33,1000,2000]
-    # pickle = legacy.load_network_pkl(network_pkl)
     
     noise_mode = "random"
-    out_dir = "./150k_w/"
-    name = 'corrosion_w'
+    out_dir = "./OUTPUT_DIR/"
+    name = 'DIR_NAME'
     
     if not os.path.exists(out_dir): # if it doesn't exist already
         os.makedirs(out_dir)
@@ -154,7 +152,6 @@ def main():
             randomNum = i
         seeds.append(randomNum)
     
-    #seeds = [585]
     print('Loading networks from "%s"...' % network_pkl)
     device = torch.device('cuda')
     object_ = pd.read_pickle(network_pkl)
