@@ -5,7 +5,33 @@ You may be wondering why we would include the generic version and the version we
 * We explicity show how to resume training for fine-tuning
 * We are 99% sure that we did not alter the code in any way outside of the parameters we chose for the ***train.py*** file, this is another reason we have included *our* version of the repo. 
 
+### Example Shell Script without fine-tuning or resuming training
+```
+#!/bin/bash
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=2
+#SBATCH --gres=gpu:2
+#SBATCH --mem=50G
+#SBATCH -t 6-00:00:00
+#SBATCH -p v100_normal_q
+#SBATCH -A infraeval
+module load gcc cmake
+module load cuda/9.0.176 
+module load cudnn/7.1
+module load Anaconda
+source activate stylegan2-pytorch
 
+cd $PBS_O_WORKDIR
+cd ~/styleGAN2/stylegan2-ada-pytorch-main/
+
+python train.py --data 'images/preprocessed_150k_512x512/' --outdir 'output/150k/v2/' --gpus=2
+
+exit
+
+```
+Notice that we are choosing to which data folder and an output folder. Notice that we are choosing (2) gpus. 
+
+### Example Shell Script with fine-tuning and resuming training
 
 # Original 
 ## StyleGAN2-ADA &mdash; Official PyTorch implementation
