@@ -1,4 +1,4 @@
-## Differences
+# Differences
 You may be wondering why we would include the generic version and the version we used. We wanted to show how we clearly based our training from the ***StyleGAN2-ADA &mdash; Official PyTorch implementation***, but we also wanted to point out the differences. We wanted to depict exactly what we did and how we did it. 
 
 * We use shell scripts
