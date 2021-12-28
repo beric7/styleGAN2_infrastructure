@@ -2,7 +2,7 @@
 """
 Created on Tue Jul 13 17:12:10 2021
 
-@author: Admin
+@author: ericb
 """
 from skimage import metrics as metric
 from skimage import measure as measure
