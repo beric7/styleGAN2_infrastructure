@@ -77,6 +77,7 @@ python dataset_tool.py --source=<source_directory> --dest=<destination_directory
 - The ***outdir*** flag should be set to an empty directory. This directory stores checkpoints for the model every 1000 iterations during training.
 - The ***data*** flag should be set to the previously created ***dest*** directory for the above data preparation command
 - The gpus flag should be set to the number of available gpus for training
+- You can clone the generic training folder or our exact training folder we used. Note that you will need to add the DATA and OUTPUT folders for the input data and output model weights respectively. 
 ```
 python train.py --outdir=<out_dir> --data=<destination_directory> --gpus=<desired_number_of_gpus>
 ```
