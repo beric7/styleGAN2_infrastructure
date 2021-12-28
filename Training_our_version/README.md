@@ -3,10 +3,11 @@ You may be wondering why we would include the generic version and the version we
 
 * We use shell scripts
 * We explicity show how to resume training for fine-tuning
+* We are 99% sure that we did not alter the code in any way outside of the parameters we chose for the ***train.py*** file, this is another reason we have included *our* version of the repo. 
 
 
 
-
+# Original 
 ## StyleGAN2-ADA &mdash; Official PyTorch implementation
 
 ![Teaser image](./docs/stylegan2-ada-teaser-1024x252.png)
